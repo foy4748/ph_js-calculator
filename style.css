@@ -1,0 +1,67 @@
+:root {
+  --button-padding: 1rem;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  max-width: 1900px;
+  margin: 0 auto;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 2rem;
+}
+
+.calculator-section * {
+  border: 1px solid red;
+  margin: 0.5rem 1rem;
+  border-radius: 1rem;
+}
+
+.calculator-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calculator {
+  width: 90%;
+}
+
+/* Display of the Calculator */
+#display {
+  display: flex;
+  justify-content: flex-end;
+  padding: 3rem;
+}
+
+/* Buttons 
+ * Parent of Numerical Pad & Operator Buttons */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+/* Numerical Pad */
+#numbers {
+  grid-column: 1/-2;
+
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+#numbers > div {
+  grid-column: auto / span 4;
+  display: flex;
+  justify-content: center;
+
+  padding: var(--button-padding);
+}
+
+/* Operator Buttons */
+#operators > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--button-padding);
+}
