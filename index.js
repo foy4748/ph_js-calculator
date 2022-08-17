@@ -18,11 +18,26 @@ function setElementValue(elementId, updatedValue) {
 
 //Targets for EventListeners
 const NumericalPad = document.getElementById("numbers");
+const OperatorButtons = document.getElementById("operators");
+const EqualButton = document.getElementById("equal-operator");
+
+//Setting Display as Global Variable
+var Display = document.getElementById("display");
 
 NumericalPad.addEventListener("click", function (e) {
-  const Display = document.getElementById("display");
   if (parseFloat(Display.innerText) === 0) {
     Display.innerText = "";
   }
   Display.innerText += e.target.innerText;
+});
+
+OperatorButtons.addEventListener("click", function (e) {
+  const currentDisplayValue = getElementValue("display");
+  setElementValue("previous", currentDisplayValue);
+  const operator = e.target.innerText;
+  Display.innerText = "0";
+});
+
+EqualButton.addEventListener("click", function (e) {
+  console.log(Display.innerText);
 });

@@ -29,6 +29,11 @@ body {
 }
 
 /* Display of the Calculator */
+#previous {
+  display: flex;
+  justify-content: flex-end;
+}
+
 #display {
   display: flex;
   justify-content: flex-end;
