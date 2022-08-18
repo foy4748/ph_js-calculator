@@ -75,6 +75,19 @@ body {
   padding: var(--button-padding);
 }
 
+/* MISCELLENIOUS Buttons */
+#misc {
+  grid-column: 1 / -1;
+
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+#misc > div {
+  grid-column: auto / span 4;
+  text-align: center;
+}
+
 /* MEDIA QUERIES */
 @media screen and (max-width: 768px) {
   :root {
