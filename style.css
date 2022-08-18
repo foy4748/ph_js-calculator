@@ -1,5 +1,11 @@
 :root {
   --button-padding: 1rem;
+
+  /* COLOR PALETTE */
+  --bg-dark: #d61c4e;
+  --bg-main: #f77e21;
+  --color-main: #fac213;
+  --color-lite: #fef9a7;
 }
 
 body {
@@ -10,12 +16,14 @@ body {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-size: 2rem;
+  color: var(--color-lite);
 }
 
 .calculator-section * {
-  border: 1px solid red;
+  border: 1px solid var(--bg-dark);
   margin: 0.5rem;
   border-radius: 1rem;
+  background-color: var(--bg-main);
 }
 
 .calculator-section {
@@ -65,6 +73,9 @@ body {
   justify-content: center;
 
   padding: var(--button-padding);
+  background-image: linear-gradient(var(--bg-dark), var(--bg-main));
+  box-shadow: 1px solid;
+  transition: transform;
 
   /* Preventing Double Click from selecting button label */
   user-select: none; /* standard syntax */
@@ -74,6 +85,13 @@ body {
   -ms-user-select: none; /* IE10+ */
 }
 
+#numbers > div:active {
+  background-image: linear-gradient(var(--bg-main), var(--bg-dark));
+}
+#numbers > div:hover {
+  transform: scale(1.01);
+}
+
 /* Operator Buttons */
 #operators > div {
   display: flex;
@@ -81,12 +99,18 @@ body {
   align-items: center;
   padding: var(--button-padding);
 
+  background-color: var(--bg-dark);
+
   /* Preventing Double Click from selecting button label */
   user-select: none; /* standard syntax */
   -webkit-user-select: none; /* webkit (safari, chrome) browsers */
   -moz-user-select: none; /* mozilla browsers */
   -khtml-user-select: none; /* webkit (konqueror) browsers */
   -ms-user-select: none; /* IE10+ */
+}
+
+#operators > div:active {
+  background-color: var(--bg-main);
 }
 
 /* MISCELLENIOUS Buttons */
@@ -109,15 +133,19 @@ body {
   -ms-user-select: none; /* IE10+ */
 }
 
+#misc > div:active {
+  color: var(--color-main);
+  background-color: var(--bg-dark);
+}
 /* MEDIA QUERIES */
 @media screen and (max-width: 768px) {
   :root {
-    --button-padding: 2.25rem;
+    --button-padding: 0.15rem 1rem;
   }
 }
 
 @media screen and (max-width: 576px) {
   :root {
-    --button-padding: 1rem;
+    --button-padding: 0.6rem 1rem;
   }
 }
