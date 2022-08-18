@@ -14,7 +14,7 @@ body {
 
 .calculator-section * {
   border: 1px solid red;
-  margin: 0.5rem 1rem;
+  margin: 0.5rem;
   border-radius: 1rem;
 }
 
@@ -32,6 +32,10 @@ body {
 .display {
   display: flex;
   justify-content: flex-end;
+}
+
+.display * {
+  border: none;
 }
 
 #display {
@@ -69,4 +73,17 @@ body {
   justify-content: center;
   align-items: center;
   padding: var(--button-padding);
+}
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 768px) {
+  :root {
+    --button-padding: 2.25rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  :root {
+    --button-padding: 1rem;
+  }
 }

@@ -41,6 +41,12 @@ const EqualButton = document.getElementById("equal-operator");
 var Display = document.getElementById("display");
 
 NumericalPad.addEventListener("click", function (e) {
+  //Preventing Cascade Button Clicking
+  //if outside the button clicked
+  if (e.target.id === "numbers") {
+    return;
+  }
+
   if (parseFloat(Display.innerText) === 0) {
     Display.innerText = "";
   }
@@ -48,6 +54,11 @@ NumericalPad.addEventListener("click", function (e) {
 });
 
 OperatorButtons.addEventListener("click", function (e) {
+  //Preventing Cascade Button Clicking
+  //if outside the button clicked
+  if (e.target.id === "operators") {
+    return;
+  }
   const currentDisplayValue = getElementValue("display");
   const operator = e.target.innerText;
 
