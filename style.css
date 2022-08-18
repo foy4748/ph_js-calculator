@@ -29,7 +29,7 @@ body {
 }
 
 /* Display of the Calculator */
-#previous {
+.display {
   display: flex;
   justify-content: flex-end;
 }

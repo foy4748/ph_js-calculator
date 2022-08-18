@@ -1,25 +1,41 @@
-//Grabbing Elements
-
-//Function
-//to grab Element Value
+//-------------------- FUNCTIONS --------------------//
+//Grab Element Value
 function getElementValue(elementId) {
   const element = document.getElementById(elementId);
   const floatConverted = parseFloat(element.innerText);
 
-  return floatConverted;
+  return floatConverted || floatConverted === 0
+    ? floatConverted
+    : element.innerText;
 }
 
-//Function
-//to set Element value
+//Set Element value
 function setElementValue(elementId, updatedValue) {
   const element = document.getElementById(elementId);
   element.innerText = updatedValue;
+}
+
+//Calculator Functionalities
+function calculator(v1, v2, operator) {
+  switch (operator) {
+    case "+":
+      return v1 + v2;
+    case "-":
+      return v1 - v2;
+    case "x":
+      return v1 * v2;
+    case "/":
+      return v1 / v2;
+    default:
+      return 0;
+  }
 }
 
 //Targets for EventListeners
 const NumericalPad = document.getElementById("numbers");
 const OperatorButtons = document.getElementById("operators");
 const EqualButton = document.getElementById("equal-operator");
+//--------------------                  --------------------//
 
 //Setting Display as Global Variable
 var Display = document.getElementById("display");
@@ -33,11 +49,26 @@ NumericalPad.addEventListener("click", function (e) {
 
 OperatorButtons.addEventListener("click", function (e) {
   const currentDisplayValue = getElementValue("display");
-  setElementValue("previous", currentDisplayValue);
   const operator = e.target.innerText;
+
+  setElementValue("previous", currentDisplayValue);
+  setElementValue("operator-sign", operator);
+
   Display.innerText = "0";
 });
 
 EqualButton.addEventListener("click", function (e) {
-  console.log(Display.innerText);
+  //Getting
+  const currentlyDisplaying = getElementValue("display");
+  const previousValue = getElementValue("previous");
+  const operator = getElementValue("operator-sign");
+
+  setElementValue(
+    "display",
+    calculator(previousValue, currentlyDisplaying, operator)
+  );
+
+  setElementValue("previous", "0");
+  setElementValue("operator-sign", "");
+  e.stopPropagation();
 });
