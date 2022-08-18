@@ -153,7 +153,8 @@ function clearEverythingOnDisplay() {
 //displaying number
 function SQR() {
   const currentlyDisplaying = getElementValue("display");
-  setElementValue("display", currentlyDisplaying * currentlyDisplaying);
+  let result = currentlyDisplaying * currentlyDisplaying;
+  setElementValue("display", limitDecimalPlaces(result));
 }
 
 //For Square Root of Currently

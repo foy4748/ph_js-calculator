@@ -50,6 +50,8 @@ body {
   display: flex;
   justify-content: flex-end;
   padding: 3rem;
+  background-color: var(--color-lite);
+  color:var(--bg-dark);
 }
 
 /* Buttons 
