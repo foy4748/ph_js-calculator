@@ -76,7 +76,6 @@ OperatorButtons.addEventListener("click", function (e) {
 
   //You can change the operator before pressing numerical button
   if (currentDisplayValue === 0 && previousValue !== 0) {
-    console.log("test");
     setElementValue("operator-sign", operator);
     return;
   }

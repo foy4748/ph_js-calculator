@@ -65,6 +65,13 @@ body {
   justify-content: center;
 
   padding: var(--button-padding);
+
+  /* Preventing Double Click from selecting button label */
+  user-select: none; /* standard syntax */
+  -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+  -moz-user-select: none; /* mozilla browsers */
+  -khtml-user-select: none; /* webkit (konqueror) browsers */
+  -ms-user-select: none; /* IE10+ */
 }
 
 /* Operator Buttons */
@@ -73,6 +80,13 @@ body {
   justify-content: center;
   align-items: center;
   padding: var(--button-padding);
+
+  /* Preventing Double Click from selecting button label */
+  user-select: none; /* standard syntax */
+  -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+  -moz-user-select: none; /* mozilla browsers */
+  -khtml-user-select: none; /* webkit (konqueror) browsers */
+  -ms-user-select: none; /* IE10+ */
 }
 
 /* MISCELLENIOUS Buttons */
@@ -86,6 +100,13 @@ body {
 #misc > div {
   grid-column: auto / span 3;
   text-align: center;
+
+  /* Preventing Double Click from selecting button label */
+  user-select: none; /* standard syntax */
+  -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+  -moz-user-select: none; /* mozilla browsers */
+  -khtml-user-select: none; /* webkit (konqueror) browsers */
+  -ms-user-select: none; /* IE10+ */
 }
 
 /* MEDIA QUERIES */
