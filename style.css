@@ -84,7 +84,7 @@ body {
 }
 
 #misc > div {
-  grid-column: auto / span 4;
+  grid-column: auto / span 3;
   text-align: center;
 }
 

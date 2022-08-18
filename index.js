@@ -69,6 +69,28 @@ OperatorButtons.addEventListener("click", function (e) {
   const currentDisplayValue = getElementValue("display");
   const operator = e.target.innerText;
 
+  const currentOperatorDisplaying = getElementValue("operator-sign");
+
+  if (currentOperatorDisplaying.length) {
+    console.log("clicked");
+    //Getting
+    const currentlyDisplaying = getElementValue("display");
+    const previousValue = getElementValue("previous");
+
+    const result = calculator(
+      previousValue,
+      currentlyDisplaying,
+      currentOperatorDisplaying
+    );
+
+    console.log(result);
+
+    setElementValue("previous", result);
+    setElementValue("operator-sign", operator);
+    setElementValue("display", "0");
+    return;
+  }
+
   setElementValue("previous", currentDisplayValue);
   setElementValue("operator-sign", operator);
 
@@ -95,6 +117,12 @@ EqualButton.addEventListener("click", function (e) {
 //-------------------- Event Functions --------------------//
 function clearDisplay() {
   setElementValue("display", "0");
+}
+
+function clearEverythingOnDisplay() {
+  setElementValue("display", "0");
+  setElementValue("previous", "0");
+  setElementValue("operator-sign", "");
 }
 
 function SQR() {
