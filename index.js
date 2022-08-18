@@ -15,17 +15,31 @@ function setElementValue(elementId, updatedValue) {
   element.innerText = updatedValue;
 }
 
+//Limit Decimal Places
+function limitDecimalPlaces(num, maxDigit = 10000000) {
+  return Math.round(num * maxDigit) / maxDigit;
+}
+
 //Calculator Functionalities
 function calculator(v1, v2, operator) {
+  let result;
   switch (operator) {
     case "+":
-      return v1 + v2;
+      result = v1 + v2;
+      result = limitDecimalPlaces(result);
+      return result;
     case "-":
-      return v1 - v2;
+      result = v1 - v2;
+      result = limitDecimalPlaces(result);
+      return result;
     case "x":
-      return v1 * v2;
+      result = v1 * v2;
+      result = limitDecimalPlaces(result);
+      return result;
     case "/":
-      return v1 / v2;
+      result = v1 / v2;
+      result = limitDecimalPlaces(result);
+      return result;
     default:
       return 0;
   }
@@ -146,6 +160,7 @@ function SQR() {
 //displaying number
 function SQRT() {
   const currentlyDisplaying = getElementValue("display");
-  setElementValue("display", Math.sqrt(currentlyDisplaying));
+  let result = Math.sqrt(currentlyDisplaying);
+  setElementValue("display", limitDecimalPlaces(result));
 }
 //--------------------                  --------------------//
