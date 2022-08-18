@@ -71,6 +71,13 @@ NumericalPad.addEventListener("click", function (e) {
   if (parseFloat(Display.innerText) === 0) {
     Display.innerText = "";
   }
+  
+  //Preventing multiple decimal (.) places
+  if(e.target.innerText === ".") {
+      if(Display.innerText.includes(".")) {
+          return;
+      }
+  }
 
   //Concating numbers at the end
   Display.innerText += e.target.innerText;

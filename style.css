@@ -113,6 +113,7 @@ body {
 
 #operators > div:active {
   background-color: var(--bg-main);
+  color:var(--bg-dark);
 }
 
 /* MISCELLENIOUS Buttons */
